@@ -1,0 +1,69 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    max-width: 992px;
+    margin: auto;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    height: 100px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel::before,
+.carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 200px;
+    z-index: 1;
+}
+
+.carousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+
+}
+
+.carousel::after {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+
+    right: 0;
+}
+
+.carousel:hover .slide {
+    animation-play-state: paused;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    animation: slideshow 15s linear infinite;
+}
+
+.slide__image {
+    margin: 0 40px;
+    height: calc(100% - 40px);
+}
+
+@keyframes slideshow {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
